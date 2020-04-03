@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: nacos-config
+
+server:
+  port: 8083
+
+nacos:
+  config:
+    bootstrap:
+      # 此参数必须开启，若不开启则不会去调用扩展配置
+      enable: true
+      log-enable: true
+    # 服务器配置
+    server-addr: 127.0.0.1:8848
+    # 命名空间（传ID）
+    namespace: 286b5c09-fd08-47c6-8e03-9a75f78990f7
+    # 配置的类型（必须传）
+    type: yaml
+    # 是否自动刷新
+    auto-refresh: true
+    # 使用的配置
+    data-id: frank_model1
+    # 配置分组信息
+    group: DEFAULT_GROUP
+    # 用户名
+    username: nacos
+    # 密码
+    password: nacos
+    # 重试次数10
+    max-retry: 10
+    # 重试时间
+    config-retry-time: 2333
+    # 最大链接时间
+    config-long-poll-timeout: 4600
+    # 是否启用远程同步配置
+    enable-remote-sync-config: true
+    encode: UTF-8
