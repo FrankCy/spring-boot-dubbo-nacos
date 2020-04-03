@@ -22,7 +22,7 @@ public class TestController {
 
     @RequestMapping(value = "/sayHello", method = RequestMethod.GET)
     public String sayHello(){
-        return providerService.sayHello("Hello Dubbo Nacos!更多原创分享，技术交流，关注：Java技术干货（ID:raysonfang）");
+        return providerService.sayHello("Hello Dubbo Nacos!");
     }
 
 }
