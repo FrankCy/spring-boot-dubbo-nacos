@@ -17,7 +17,6 @@
     <properties>
         <java.version>1.8</java.version>
         <dubbo.nacos.registry.version>2.7.3</dubbo.nacos.registry.version>
-        <tiens.common.version>1.0.0-SNAPSHOT</tiens.common.version>
         <tencent.sdk.version>3.1.62</tencent.sdk.version>
         <tencent.qcloudsms.version>1.0.6</tencent.qcloudsms.version>
         <aws.java.sdk.sns.version>1.11.665</aws.java.sdk.sns.version>
