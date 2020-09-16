@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-boot-dubbo-nacos</artifactId>
+        <groupId>frank-test</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>nacos-provider</artifactId>
+
+    <name>nacos-provider</name>
+    <description>服务提供者</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <dubbo.nacos.registry.version>2.7.3</dubbo.nacos.registry.version>
+        <tiens.common.version>1.0.0-SNAPSHOT</tiens.common.version>
+        <tencent.sdk.version>3.1.62</tencent.sdk.version>
+        <tencent.qcloudsms.version>1.0.6</tencent.qcloudsms.version>
+        <aws.java.sdk.sns.version>1.11.665</aws.java.sdk.sns.version>
+        <aws.java.sdk.core.version>1.11.665</aws.java.sdk.core.version>
+        <tencent.cos.version>5.6.24</tencent.cos.version>
+        <aws.java.sdk.s3.version>1.11.415</aws.java.sdk.s3.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>frank-test</groupId>
+            <artifactId>nacos-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <!-- 排除自带的logback依赖 -->
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        <!--<dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- Dubbo -->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo</artifactId>
+        </dependency>
+
+        <!-- Dubbo Registry Nacos -->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-registry-nacos</artifactId>
+            <version>${dubbo.nacos.registry.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-client</artifactId>
+        </dependency>
+
+        <!-- Tencent短信maven依赖 begin -->
+        <dependency>
+            <groupId>com.tencentcloudapi</groupId>
+            <artifactId>tencentcloud-sdk-java</artifactId>
+            <version>3.1.62</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.qcloudsms</groupId>
+            <artifactId>qcloudsms</artifactId>
+            <version>${tencent.qcloudsms.version}</version>
+        </dependency>
+        <!-- Tencent短信maven依赖 end -->
+
+        <!-- AWS短信服务SNS begin -->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-sns</artifactId>
+            <version>${aws.java.sdk.sns.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-core</artifactId>
+            <version>${aws.java.sdk.core.version}</version>
+        </dependency>
+        <!-- AWS短信服务SNS end -->
+
+        <!-- 发送邮件工具包 start -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+        <!-- 发送邮件工具包 end -->
+
+        <!-- AWS 邮件服务 start -->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-core</artifactId>
+            <version>${aws.java.sdk.core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-ses</artifactId>
+            <version>${aws.java.sdk.core.version}</version>
+        </dependency>
+        <!-- AWS 邮件服务 end -->
+
+        <!-- 腾讯COS begin -->
+        <dependency>
+            <groupId>com.qcloud</groupId>
+            <artifactId>cos_api</artifactId>
+            <version>${tencent.cos.version}</version>
+        </dependency>
+        <!-- 腾讯COS end -->
+
+        <!-- 新增httpclient包 begin -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.12</version>
+        </dependency>
+        <!-- 新增httpclient包 end -->
+
+        <!-- AWS S3 begin -->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-s3</artifactId>
+            <version>${aws.java.sdk.s3.version}</version>
+        </dependency>
+        <!-- AWS S3 end -->
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>apache.snapshots.https</id>
+            <name>Apache Development Snapshot Repository</name>
+            <url>https://repository.apache.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

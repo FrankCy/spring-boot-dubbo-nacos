@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: nacos-provider
+
+# long config
+logging:
+  config: classpath:log4j2.xml
+  level:
+    root: debug
+    web: info
+  file: logs/nacos-provider.log
+
+# Dubbo Application  nacos
+## The default value of dubbo.application.name is ${spring.application.name}
+## dubbo.application.name=${spring.application.name}
+nacos:
+  service-address: 127.0.0.1
+  port: 8848
+dubbo:
+  registry:
+    address: nacos://${nacos.service-address}:${nacos.port}
+  protocol:
+    name: dubbo
+    port: 20883
+  scan:
+    base-packages: com.frank.nacos.*.service.impl
+
+tiens:
+  # 邮件配置
+  mail:
+    cloud-vendors: AWS
+  # 短信配置
+  sms:
+    cloud-vendors: AWS
+  # 对象存储配置
+  storage:
+    cloud-vendors: AWS
+
+server:
+  port: 8012
