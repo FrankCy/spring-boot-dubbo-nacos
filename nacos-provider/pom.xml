@@ -22,7 +22,7 @@
         <aws.java.sdk.sns.version>1.11.665</aws.java.sdk.sns.version>
         <aws.java.sdk.core.version>1.11.665</aws.java.sdk.core.version>
         <tencent.cos.version>5.6.24</tencent.cos.version>
-        <aws.java.sdk.s3.version>1.11.415</aws.java.sdk.s3.version>
+        <aws.java.sdk.s3.version>1.12.261</aws.java.sdk.s3.version>
     </properties>
 
     <dependencies>
